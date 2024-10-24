@@ -1,0 +1,358 @@
+/* Global Styles */
+:root {
+    --primary-bg: #000000;
+    --accent-color: #c20808;
+    --text-color: #FFFFFF;
+    --text-color-light: #CCCCCC;
+    --mono-font: 'Courier New', Courier, monospace;
+}
+
+body {
+    font-family: var(--mono-font);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin-right: 1rem;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: var(--accent-color);
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-links {
+    display: flex;
+    margin-right: 1rem;
+  }
+  
+  .social-links a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: var(--accent-color);
+  }
+  
+  .theme-toggle {
+    width: 50px;
+    height: 24px;
+    position: relative;
+  }  
+
+/* Main Content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+h1, h2 {
+    color: var(--accent-color);
+    font-weight: bold; /* Monospaced fonts often look better without bold */
+}
+
+/* Home Section */
+#home {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--text-color-light);
+    font-weight: bold;
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    border-radius: 0; /* Square buttons for a more monospaced look */
+    transition: background-color 0.3s ease;
+    font-family: var(--mono-font);
+}
+
+.cta-button:hover {
+    background-color: #c20808;
+}
+
+/* About Section */
+#about p {
+    color: var(--text-color-light);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cta-button {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Additional styles for form elements to maintain monospaced look */
+input, textarea, button {
+    font-family: var(--mono-font);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c20808;
+}
+/* Header and Navigation */
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 1rem;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+}
+
+.social-links a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-bottom: 1rem;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+}
+#book-highlights {
+    margin-bottom: 4rem;
+}
+
+.highlights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.highlight {
+    background-color: #111; /* Slightly lighter than the background for contrast */
+    border-left: 3px solid var(--accent-color);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.highlight:hover {
+    transform: translateY(-5px);
+}
+
+.highlight h3 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight p {
+    color: var(--text-color-light);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.highlight-date {
+    font-size: 0.8rem;
+    color: var(--text-color-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .highlights-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+}
+:root {
+    --primary-bg: #000000;
+    --text-color: #FFFFFF;
+    --text-color-light: #CCCCCC;
+    --accent-color: #FF0000;
+}
+
+body.light-theme {
+    --primary-bg: #FFFFFF;
+    --text-color: #000000;
+    --text-color-light: #333333;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-toggle label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--accent-color);
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.theme-toggle label:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--primary-bg);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + label {
+    background-color: #CCCCCC;
+}
+
+input:checked + label:before {
+    transform: translateX(26px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .theme-toggle {
+        margin-top: 1rem;
+    }
+}

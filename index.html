@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravind Subramanian</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#book-highlights">Book Highlights</a></li>
+                <li><a href="#currently-reading">Currently reading</a></li>
+            </ul>
+        </nav>
+        <div class="right-section">
+          <div class="social-links">
+            <a href="https://x.com/Aravind__77" target="_blank" rel="noopener noreferrer">X(Twitter)</a>
+            <a href="https://www.linkedin.com/in/aravind-subramanian179/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.youtube.com/@aravind.subramanian" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+          <div class="theme-toggle">
+            <input type="checkbox" id="theme-switch" aria-label="Toggle Theme">
+            <label for="theme-switch"></label>
+          </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Aravind Subramanian</h1>
+            <p class="tagline">Autodidact | Entrepreneur | Tech Enthusiast</p>
+            <div class="cta-buttons">
+                <a href="#about" class="cta-button">About Me</a>
+                <a href="#projects" class="cta-button">My Projects</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a curiosity driven autodidact and entrepreneur with a keen interest in technology. My journey in the tech world has been driven by a desire to learn, create, and innovate. From coding websites to exploring new business ideas, I'm constantly pushing my boundaries and seeking new challenges.</p>
+            <p>Currently, I'm focused on honing my trading skills, building impactful websites, and exploring the intersection of technology and entrepreneurship. My goal is to leverage technology to solve real-world problems and create value for others.</p>
+        </section>
+    </main>
+    <script>
+        const toggleSwitch = document.getElementById('theme-switch');
+        const body = document.body;
+    
+        toggleSwitch.addEventListener('change', () => {
+            body.classList.toggle('light-theme');
+        });
+    </script>
+    <footer>
+        <p>&copy; 2024 Aravind Subramanian. All rights reserved.</p>
+    </footer>
+</body>
+</html>
