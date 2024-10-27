@@ -8,26 +8,35 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#book-highlights">Book Highlights</a></li>
-                <li><a href="#currently-reading">Currently reading</a></li>
-            </ul>
-        </nav>
-        <div class="right-section">
-          <div class="social-links">
-            <a href="https://x.com/Aravind__77" target="_blank" rel="noopener noreferrer">X(Twitter)</a>
-            <a href="https://www.linkedin.com/in/aravind-subramanian179/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://www.youtube.com/@aravind.subramanian" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <div class="nav-content">
+          <div class="hamburger" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <div class="theme-toggle">
-            <input type="checkbox" id="theme-switch" aria-label="Toggle Theme">
-            <label for="theme-switch"></label>
+      
+          <nav class="nav-menu" id="nav-menu">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#book-highlights">Book Highlights</a></li>
+              <li><a href="#currently-reading">Currently reading</a></li>
+            </ul>
+          </nav>
+      
+          <div class="right-section">
+            <div class="social-links">
+              <a href="https://x.com/Aravind__77" target="_blank" rel="noopener noreferrer">X(Twitter)</a>
+              <a href="https://www.linkedin.com/in/aravind-subramanian179/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://www.youtube.com/@aravind.subramanian" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+            <div class="theme-toggle">
+              <input type="checkbox" id="theme-toggle" />
+              <label for="theme-toggle"></label>
+            </div>
           </div>
         </div>
-    </header>
+      </header>
 
     <main>
         <section id="home">
@@ -45,16 +54,10 @@
             <p>Currently, I'm focused on honing my trading skills, building impactful websites, and exploring the intersection of technology and entrepreneurship. My goal is to leverage technology to solve real-world problems and create value for others.</p>
         </section>
     </main>
-    <script>
-        const toggleSwitch = document.getElementById('theme-switch');
-        const body = document.body;
     
-        toggleSwitch.addEventListener('change', () => {
-            body.classList.toggle('light-theme');
-        });
-    </script>
     <footer>
         <p>&copy; 2024 Aravind Subramanian. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
