@@ -36,8 +36,82 @@ header {
   padding: 1rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  z-index: 100;
 }
 
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.social-links a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .nav-content {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      width: 100%;
+  }
+
+  .hamburger {
+      display: block;
+      grid-column: 1;
+      justify-self: start;
+  }
+
+  .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: var(--primary-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s ease-in-out;
+      z-index: 99;
+  }
+
+  .nav-menu.active {
+      left: 0;
+  }
+
+  .nav-menu ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+  }
+
+  .social-links {
+      grid-column: 3;
+      justify-self: end;
+      display: flex !important;
+      gap: 1rem;
+  }
+
+  .social-links a {
+      font-size: 1.2rem;
+  }
+}
 .nav-menu {
   flex-grow: 1;
 }
@@ -355,6 +429,8 @@ footer {
   border-color: var(--accent-color);
   box-shadow: 0 0 10px rgba(194, 8, 8, 0.3); /* Subtle red glow */
 }
+/* Base styles */
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* For iOS smooth scroll */
 }
