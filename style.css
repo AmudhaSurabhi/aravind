@@ -222,10 +222,10 @@ header {
 .hamburger span {
   display: block;
   position: absolute;
-  height: 3px;
+  height: 2px;
   width: 100%;
   background: var(--text-color);
-  border-radius: 3px;
+  border-radius: 2px;
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
@@ -237,16 +237,16 @@ header {
 }
 
 .hamburger span:nth-child(2) {
-  top: 10px;
+  top: 7px;
 }
 
 .hamburger span:nth-child(3) {
-  top: 20px;
+  top: 14px;
 }
 
 /* Animation classes for the X */
 .hamburger.active span:nth-child(1) {
-  top: 10px;
+  top: 7px;
   transform: rotate(45deg);
 }
 
@@ -256,7 +256,7 @@ header {
 }
 
 .hamburger.active span:nth-child(3) {
-  top: 10px;
+  top: 7px;
   transform: rotate(-45deg);
 }
 /* Main Content */
