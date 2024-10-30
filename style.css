@@ -1,11 +1,22 @@
-/* Variables
-----------------------------------------*/
+/* Theme variables */
 :root {
-  --primary-bg: #000000;
+  /* Light theme defaults */
+  --primary-bg: #FFFFFF;
+  --text-color: #000000;
+  --text-color-light: #666666;
   --accent-color: #c20808;
+  --menu-bg: #f5f5f5;
+  --nav-shadow: rgba(0, 0, 0, 0.1);
+  --mono-font: 'Courier New', Courier, monospace;
+}
+
+[data-theme="dark"] {
+  --primary-bg: #000000;
   --text-color: #FFFFFF;
   --text-color-light: #CCCCCC;
-  --mono-font: 'Courier New', Courier, monospace;
+  --accent-color: #c20808;
+  --menu-bg: #1a1a1a;
+  --nav-shadow: rgba(0, 0, 0, 0.3);
 }
 
 /* Reset & Base Styles
@@ -26,6 +37,34 @@ body {
   background-color: var(--primary-bg);
   color: var(--text-color);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle styles */
+#themeToggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+#themeToggle:hover {
+  color: var(--accent-color);
+}
+
+#themeToggle i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+#themeToggle:hover i {
+  transform: rotate(15deg);
 }
 
 /* Typography
@@ -35,6 +74,7 @@ h1 {
   color: var(--accent-color);
   margin-bottom: 1rem;
   text-align: center;
+  margin-top: 1.5rem;
 }
 
 h2 {
@@ -66,6 +106,7 @@ header {
   top: 0;
   background-color: var(--primary-bg);
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 .nav-content {
@@ -80,6 +121,7 @@ header {
 
 .nav-menu {
   flex-grow: 1;
+  transition: background-color 0.3s ease;
 }
 
 .nav-menu ul {
@@ -96,14 +138,13 @@ header {
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 0.5rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-color);
+  background-color: transparent;
 }
-
 /* Social Links
 ----------------------------------------*/
 .social-links {
@@ -147,38 +188,42 @@ header {
   left: 0;
   transform: rotate(0deg);
   transition: .25s ease-in-out;
+  transform-origin: center;
 }
 
+/* Position the lines */
 .hamburger span:nth-child(1) {
   top: 0;
-  transform-origin: left center;
 }
 
 .hamburger span:nth-child(2) {
   top: 5px;
-  transform-origin: left center;
 }
 
 .hamburger span:nth-child(3) {
   top: 10px;
-  transform-origin: left center;
 }
 
+/* X animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg);
-  top: -1px;
-  left: 2px;
+  top: 5px;
 }
 
 .hamburger.active span:nth-child(2) {
-  width: 0%;
   opacity: 0;
 }
 
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg);
-  top: 11px;
-  left: 2px;
+  top: 5px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .hamburger {
+      display: block;
+  }
 }
 
 /* Main Content
@@ -197,9 +242,19 @@ section {
   margin-bottom: 4rem;
 }
 
-#home, #about {
+#about {
   text-align: center;
   padding: 4rem 2rem;
+}
+#home {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  margin-top: 1.5rem;  /* Added top margin */
 }
 
 /* CTA Buttons
@@ -241,6 +296,7 @@ footer {
   /* Navigation */
   h1 {
     font-size: 1.75rem;  /* Even smaller on mobile */
+    margin-top: 1rem;  /* Slightly less space on mobile */
   }
   .nav-content {
     display: flex;
@@ -355,5 +411,6 @@ footer {
 
   h1 {
     font-size: 1.5rem;  /* Further reduced for very small screens */
+    margin-top: 0.8rem;  /* Even less space on very small screens */
   }
 }
