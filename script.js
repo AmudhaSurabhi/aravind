@@ -74,4 +74,47 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', handleWindowResize);
     internalLinks.forEach(anchor => anchor.addEventListener('click', handleInternalLinkClick));
     ctaButtons.forEach(button => button.addEventListener('click', handleCtaButtonClick));
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const root = document.documentElement;
+    
+    // Function to update theme
+    function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateIcon(theme === 'light');
+    }
+    
+    // Function to update icon
+    function updateIcon(isLight) {
+        themeIcon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    
+    // Check if user has a saved preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        // Use saved preference if it exists
+        setTheme(savedTheme);
+    } else {
+        // Check system preference if no saved preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+    }
+    
+    // Listen for theme toggle clicks
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = root.getAttribute('data-theme');
+        setTheme(currentTheme === 'light' ? 'dark' : 'light');
+    });
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        // Only update theme if user hasn't set a preference
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
 });
