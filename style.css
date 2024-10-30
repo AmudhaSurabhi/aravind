@@ -1,4 +1,15 @@
-/* Reset and Base Styles */
+/* Variables
+----------------------------------------*/
+:root {
+  --primary-bg: #000000;
+  --accent-color: #c20808;
+  --text-color: #FFFFFF;
+  --text-color-light: #CCCCCC;
+  --mono-font: 'Courier New', Courier, monospace;
+}
+
+/* Reset & Base Styles
+----------------------------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +21,6 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
-:root {
-  --primary-bg: #000000;
-  --accent-color: #c20808;
-  --text-color: #FFFFFF;
-  --text-color-light: #CCCCCC;
-  --mono-font: 'Courier New', Courier, monospace;
-}
-
 body {
   font-family: var(--mono-font);
   background-color: var(--primary-bg);
@@ -25,7 +28,38 @@ body {
   line-height: 1.6;
 }
 
-/* Header and Navigation */
+/* Typography
+----------------------------------------*/
+h1 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+p {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.tagline {
+  color: var(--text-color-light);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Header & Navigation
+----------------------------------------*/
 header {
   position: fixed;
   width: 100%;
@@ -57,18 +91,26 @@ header {
 .nav-menu a {
   color: var(--text-color);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
 }
 
 .nav-menu a:hover {
-  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Social Links */
+/* Social Links
+----------------------------------------*/
 .social-links {
   display: flex;
   gap: 2.5rem;
   align-items: center;
+  margin-right: 5px;
 }
 
 .social-links a {
@@ -82,7 +124,8 @@ header {
   color: var(--accent-color);
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu
+----------------------------------------*/
 .hamburger {
   display: none;
   cursor: pointer;
@@ -90,7 +133,7 @@ header {
   height: 12px;
   position: relative;
   z-index: 100;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .hamburger span {
@@ -138,7 +181,8 @@ header {
   left: 2px;
 }
 
-/* Main Content */
+/* Main Content
+----------------------------------------*/
 main {
   padding-top: 80px;
   width: 100%;
@@ -158,36 +202,8 @@ section {
   padding: 4rem 2rem;
 }
 
-/* Typography */
-h1 {
-  font-size: 2.5rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: 2rem;
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-p {
-  max-width: 800px;
-  margin: 0 auto 1.5rem;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.tagline {
-  color: var(--text-color-light);
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-/* CTA Buttons */
+/* CTA Buttons
+----------------------------------------*/
 .cta-buttons {
   display: flex;
   gap: 2rem;
@@ -210,7 +226,8 @@ p {
   box-shadow: 0 0 10px rgba(194, 8, 8, 0.3);
 }
 
-/* Footer */
+/* Footer
+----------------------------------------*/
 footer {
   text-align: center;
   padding: 2rem;
@@ -218,12 +235,18 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Mobile Navigation */
+/* Responsive Styles
+----------------------------------------*/
 @media screen and (max-width: 768px) {
+  /* Navigation */
+  h1 {
+    font-size: 1.75rem;  /* Even smaller on mobile */
+  }
   .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem;
     width: 100%;
   }
 
@@ -234,28 +257,36 @@ footer {
   .nav-menu {
     position: fixed;
     top: 0;
-    left: -70%; /* Start position off-screen */
-    width: 70%; /* Set to 75% of screen width */
+    left: -75%;
+    width: 75%;
     height: 100vh;
-    background-color: #2c2c2c; /* Darker grey background */
+    background-color: #2c2c2c;
     display: flex;
-    justify-content: center;
-    align-items: center;
     transition: 0.3s ease-in-out;
     z-index: 99;
-    box-shadow: 2px 0 10px rgb(13, 13, 13); /* Optional: adds shadow on the right edge */
-} 
+    padding: 2rem 0.5rem;
+    box-shadow: 2px 0 10px rgb(13, 13, 13);
+  }
 
   .nav-menu.active {
     left: 0;
   }
 
   .nav-menu ul {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    width: 100%;
+    padding-left: 0.5rem;
+    margin-top: 3rem;
   }
 
+  .nav-menu li {
+    list-style: none;
+    width: 100%;
+  }
+
+  /* Social Links */
   .social-links {
     display: flex !important;
     gap: 1rem;
@@ -267,10 +298,34 @@ footer {
     padding: 8px;
   }
 
+  /* Layout */
   body.menu-open {
     overflow: hidden;
   }
 
+  main {
+    padding-top: 60px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  /* Typography */
+  p {
+    padding: 0 0.5rem;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .tagline {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* CTA Buttons */
   .cta-buttons {
     flex-direction: column;
     gap: 1.5rem;
@@ -286,38 +341,19 @@ footer {
   }
 }
 
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-  main {
-      padding-top: 60px;
-      padding-left: 1rem;
-      padding-right: 1rem;
-  }
-
-  section {
-      margin-bottom: 3rem;
-  }
-
-  p {
-      padding: 0 0.5rem;
-      font-size: 0.95rem;
-      text-align: left; /* Left align text on mobile for better readability */
-  }
-
-  .tagline {
-      text-align: center; /* Keep tagline centered on mobile */
-      padding: 0 1rem;
-  }
-}
-
-/* Small screen adjustments */
+/* Small Screen Adjustments
+----------------------------------------*/
 @media screen and (max-width: 380px) {
   main {
-      padding-left: 0.8rem;
-      padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
 
   p {
-      padding: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;  /* Further reduced for very small screens */
   }
 }
