@@ -9,6 +9,12 @@
   --menu-bg: #f5f5f5;
   --nav-shadow: rgba(0, 0, 0, 0.1);
   --mono-font: 'Roboto', sans-serif;
+  --theme-toggle-width: 50px;
+  --theme-toggle-height: 25px;
+  --theme-toggle-bg: #ccc;
+  --theme-toggle-active-bg: #c20808;
+  --theme-toggle-thumb-bg: #fff;
+  --theme-toggle-thumb-size: 20px;
 }
 
 /* Dark Theme Variables */
@@ -19,6 +25,9 @@
   --accent-color: #c20808;
   --menu-bg: #1a1a1a;
   --nav-shadow: rgba(0, 0, 0, 0.3);
+  --theme-toggle-bg: #333;
+  --theme-toggle-active-bg: #c20808;
+  --theme-toggle-thumb-bg: #fff;
 }
 
 /* Reset & Base Styles
@@ -163,6 +172,38 @@ header {
 
 /* Theme Toggle
 ----------------------------------------*/
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: var(--theme-toggle-width);
+  height: var(--theme-toggle-height);
+  background-color: var(--theme-toggle-bg);
+  border-radius: var(--theme-toggle-height);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  width: var(--theme-toggle-thumb-size);
+  height: var(--theme-toggle-thumb-size);
+  border-radius: 50%;
+  background-color: var(--theme-toggle-thumb-bg);
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.theme-toggle.active {
+  background-color: var(--theme-toggle-active-bg);
+}
+
+.theme-toggle.active::before {
+  left: calc(100% - var(--theme-toggle-thumb-size) - 3px);
+}
+
 #themeToggle {
   background: none;
   border: none;
