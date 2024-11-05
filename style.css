@@ -1,4 +1,5 @@
-/* Theme variables */
+/* Theme Variables
+----------------------------------------*/
 :root {
   /* Light theme defaults */
   --primary-bg: #FFFFFF;
@@ -10,6 +11,7 @@
   --mono-font: 'Roboto', sans-serif;
 }
 
+/* Dark Theme Variables */
 [data-theme="dark"] {
   --primary-bg: #000000;
   --text-color: #FFFFFF;
@@ -40,48 +42,21 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Theme toggle styles */
-#themeToggle {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 0.75rem 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-#themeToggle:hover {
-  color: var(--accent-color);
-}
-
-#themeToggle i {
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-#themeToggle:hover i {
-  transform: rotate(15deg);
-}
-
 /* Typography
 ----------------------------------------*/
+h1, h2 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
 h1 {
   font-size: 2rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  text-align: center;
   margin-top: 1.5rem;
 }
 
 h2 {
   font-size: 2rem;
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
-  text-align: center;
 }
 
 p {
@@ -119,15 +94,20 @@ header {
   position: relative;
 }
 
+/* Navigation Menu
+----------------------------------------*/
 .nav-menu {
   flex-grow: 1;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: transparent !important;
+  box-shadow: none;
 }
 
 .nav-menu ul {
   display: flex;
   list-style: none;
   gap: 2rem;
+  background-color: transparent;
 }
 
 .nav-menu a {
@@ -139,12 +119,78 @@ header {
   gap: 1rem;
   padding: 0.75rem 0.5rem;
   transition: color 0.3s ease;
+  background-color: transparent;
 }
 
 .nav-menu a:hover {
   color: var(--accent-color);
-  background-color: transparent;
 }
+
+.nav-menu.opening {
+  transition: left 0.3s ease-in-out;
+}
+
+/* Theme-specific Navigation Styles */
+[data-theme="light"] .nav-menu {
+  background-color: var(--menu-bg);
+  color: var(--text-color);
+}
+
+[data-theme="light"] .nav-menu a {
+  color: var(--text-color);
+}
+
+[data-theme="light"] .nav-menu a:hover {
+  color: var(--accent-color);
+}
+
+[data-theme="light"] .hamburger span {
+  background-color: var(--text-color);
+}
+
+[data-theme="dark"] .nav-menu {
+  background-color: var(--menu-bg);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .nav-menu a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .nav-menu a:hover {
+  color: var(--accent-color);
+}
+
+/* Theme Toggle
+----------------------------------------*/
+#themeToggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+#themeToggle:hover {
+  color: var(--accent-color);
+  font-family: inherit; /* Match the font of other nav items */
+  font-size: 1.2rem; /* Match the size of other nav items */
+}
+
+#themeToggle i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+#themeToggle:hover i {
+  transform: rotate(15deg);
+}
+
 /* Social Links
 ----------------------------------------*/
 .social-links {
@@ -182,7 +228,7 @@ header {
   position: absolute;
   height: 1.5px;
   width: 18px;
-  background-color: #FFFFFF;
+  background-color: var(--text-color);
   border-radius: 1px;
   opacity: 1;
   left: 0;
@@ -191,20 +237,10 @@ header {
   transform-origin: center;
 }
 
-/* Position the lines */
-.hamburger span:nth-child(1) {
-  top: 0;
-}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 5px; }
+.hamburger span:nth-child(3) { top: 10px; }
 
-.hamburger span:nth-child(2) {
-  top: 5px;
-}
-
-.hamburger span:nth-child(3) {
-  top: 10px;
-}
-
-/* X animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg);
   top: 5px;
@@ -217,13 +253,6 @@ header {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg);
   top: 5px;
-}
-
-/* Mobile styles */
-@media screen and (max-width: 768px) {
-  .hamburger {
-      display: block;
-  }
 }
 
 /* Main Content
@@ -246,6 +275,7 @@ section {
   text-align: center;
   padding: 4rem 2rem;
 }
+
 #home {
   text-align: center;
   display: flex;
@@ -254,7 +284,7 @@ section {
   justify-content: center;
   min-height: 100vh;
   padding: 2rem;
-  margin-top: 1.5rem;  /* Added top margin */
+  margin-top: 1.5rem;
 }
 
 /* CTA Buttons
@@ -293,15 +323,12 @@ footer {
 /* Responsive Styles
 ----------------------------------------*/
 @media screen and (max-width: 768px) {
-  /* Navigation */
   h1 {
-    font-size: 1.75rem;  /* Even smaller on mobile */
-    margin-top: 1rem;  /* Slightly less space on mobile */
+    font-size: 1.75rem;
+    margin-top: 1rem;
   }
+
   .nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0.5rem;
     width: 100%;
   }
@@ -316,20 +343,47 @@ footer {
     left: -75%;
     width: 75%;
     height: 100vh;
-    background-color: #2c2c2c;
+    background-color: transparent !important; /* Remove background from nav-menu */
     display: flex;
     transition: 0.3s ease-in-out;
     z-index: 99;
     padding: 2rem 0.5rem;
   }
 
-  .nav-menu.active {
+  /* Add a pseudo-element for the slide-in menu background */
+  .nav-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
     left: 0;
-    box-shadow: 2px 0 10px rgb(13, 13, 13);
+    width: 100%;
+    height: 100%;
+    background-color: var(--menu-bg);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Show background only when menu is active */
+  .nav-menu.active::before {
+    opacity: 1;
   }
 
   .nav-menu ul {
-    display: flex;
+    position: relative; /* Ensure menu items stay above the background */
+    z-index: 1;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    padding-left: 0.5rem;
+    margin-top: 3rem;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-menu ul {
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
@@ -342,9 +396,24 @@ footer {
     width: 100%;
   }
 
-  /* Social Links */
+  .nav-menu ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0.5rem;
+    transition: color 0.3s ease;
+    background-color: transparent;
+  }
+
+  /* Specific hover effect for nav items */
+  .nav-menu ul li a:hover {
+    color: var(--accent-color) !important; /* Force the hover color */
+  }
+
   .social-links {
-    display: flex !important;
     gap: 1rem;
     margin-right: 0.5rem;
   }
@@ -354,22 +423,18 @@ footer {
     padding: 8px;
   }
 
-  /* Layout */
   body.menu-open {
     overflow: hidden;
   }
 
   main {
     padding-top: 60px;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   section {
     margin-bottom: 3rem;
   }
 
-  /* Typography */
   p {
     padding: 0 0.5rem;
     font-size: 0.95rem;
@@ -381,7 +446,6 @@ footer {
     padding: 0 1rem;
   }
 
-  /* CTA Buttons */
   .cta-buttons {
     flex-direction: column;
     gap: 1.5rem;
@@ -410,7 +474,7 @@ footer {
   }
 
   h1 {
-    font-size: 1.5rem;  /* Further reduced for very small screens */
-    margin-top: 0.8rem;  /* Even less space on very small screens */
+    font-size: 1.5rem;
+    margin-top: 0.8rem;
   }
 }
