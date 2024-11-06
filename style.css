@@ -594,3 +594,7 @@ footer {
     margin-top: 0.8rem;
   }
 }
+
+button:focus, a:focus {
+    outline: none;
+}
